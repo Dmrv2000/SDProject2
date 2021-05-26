@@ -3,6 +3,9 @@
   <persistence-unit name="SDProject2PU" transaction-type="JTA">
     <jta-data-source>java:app/DBProject2</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <properties/>
+    <properties>
+  <property name="javax.persistence.jdbc.user" value="APP"/>
+  <property name="javax.persistence.jdbc.password" value="()"/>
+ </properties>
   </persistence-unit>
 </persistence>
