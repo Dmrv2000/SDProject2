@@ -28,6 +28,11 @@ public class ProdBean {
     public List<app.Produtos> getProducts() {
         return (List<app.Produtos>) em.createNamedQuery("Produtos.findAll").getResultList();
     }
+    
+    public Produtos addProduct(Produtos prd) {
+        em.persist(prd);
+        return prd;
+    }
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 }
