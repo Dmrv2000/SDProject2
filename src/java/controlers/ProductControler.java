@@ -5,6 +5,7 @@
  */
 package controlers;
 
+import app.Produtos;
 import beans.ProdBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,12 +22,21 @@ import javax.inject.Named;
 @RequestScoped
 public class ProductControler {
 
+
     @EJB
     private ProdBean prodBean;
+    
+    Produtos novoProduto = new Produtos(); 
     
     List<app.Produtos> productList = new ArrayList<>();
     public List<app.Produtos> getProductList() {
         productList = prodBean.getProducts();
         return productList;
+    }
+    
+    public String addNewProduct(){
+        prodBean.addProduct(novoProduto);
+        productList = prodBean.getProducts();
+        return "admin.xhtml";
     }
 }
