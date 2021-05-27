@@ -11,15 +11,15 @@
         <h:form>
             <h:panelGrid columns="2" >
                 <h:outputLabel value="Nome do produto: "/>
-                <h:inputText value="#{productControler.novoProduto.pName}"/>
+                <h:inputText value="#{productControler.novoProduto.PName}"/>
                 <h:outputLabel value="Categoria: "/>
-                <h:inputText value="#{productControler.novoProduto.pCategoria}"/>
+                <h:inputText value="#{productControler.novoProduto.PCategoria}"/>
                 <h:outputLabel value="Quantidade: "/>
-                <h:inputText value="#{productControler.novoProduto.pStock}"/>
+                <h:inputText value="#{productControler.novoProduto.PStock}"/>
                 <h:outputLabel value="Preço de Compra: "/>
-                <h:inputText value="#{productControler.novoProduto.pPrecocompra}"/>
+                <h:inputText value="#{productControler.novoProduto.PPrecocompra}"/>
                 <h:outputLabel value="Preço de Venda: "/>
-                <h:inputText value="#{productControler.novoProduto.pPrecovenda}"/>
+                <h:inputText value="#{productControler.novoProduto.PPrecovenda}"/>
             </h:panelGrid>
             <h:commandButton value="Save" action="#{productControler.addNewProduct()}"/>
         </h:form>

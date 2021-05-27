@@ -27,6 +27,14 @@ public class ProductControler {
     private ProdBean prodBean;
     
     Produtos novoProduto = new Produtos(); 
+
+    public Produtos getNovoProduto() {
+        return novoProduto;
+    }
+
+    public void setNovoProduto(Produtos novoProduto) {
+        this.novoProduto = novoProduto;
+    }
     
     List<app.Produtos> productList = new ArrayList<>();
     public List<app.Produtos> getProductList() {
