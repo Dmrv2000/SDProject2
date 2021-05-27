@@ -62,4 +62,11 @@ public class ProductControler {
         
         return "admin.xhtml";
     }
+    
+    public String buyProduct(){
+        prodBean.comprarProduto(novoProduto);
+        productList = prodBean.getProducts();
+        
+        return "users.xhtml";
+    }
 }

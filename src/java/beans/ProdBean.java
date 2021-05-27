@@ -49,6 +49,16 @@ public class ProdBean {
         }
     }
     
+    public Produtos comprarProduto(Produtos p){
+        Produtos b = em.find(Produtos.class, p.getPId());
+        if(b != null){
+            if(b.getPStock() >= p.getPStock()){
+                b.setPStock(b.getPStock() - p.getPStock());
+            }
+        }
+        return b;
+    }
+    
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 }

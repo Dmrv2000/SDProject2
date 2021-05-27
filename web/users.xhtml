@@ -4,50 +4,24 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Admin</title>
+        <title>Users</title>
     </h:head>
     <h:body>
-        
         <h:form style="border: 1px solid black">
-            <h2>Novo Produto</h2>
+            <h2>Comprar Produto</h2>
             <h:panelGrid columns="2" >
-                <h:outputLabel value="Nome do produto: "/>
-                <h:inputText value="#{productControler.novoProduto.PName}"/>
-                <h:outputLabel value="Categoria: "/>
-                <h:inputText value="#{productControler.novoProduto.PCategoria}"/>
-                <h:outputLabel value="Quantidade: "/>
-                <h:inputText value="#{productControler.novoProduto.PStock}"/>
-                <h:outputLabel value="Preço de Compra: "/>
-                <h:inputText value="#{productControler.novoProduto.PPrecocompra}"/>
-                <h:outputLabel value="Preço de Venda: "/>
-                <h:inputText value="#{productControler.novoProduto.PPrecovenda}"/>
-            </h:panelGrid>
-            <h:commandButton value="Save" action="#{productControler.addNewProduct()}"/>
-        </h:form>
-        
-        
-        <h:form style="border: 1px solid black">
-            <h2>Repôr Produto</h2>
-            <h:panelGrid columns="2" >
-                <h:outputLabel value="Id do produto: "/>
+                <h:outputLabel value="ID do produto: "/>
                 <h:inputText value="#{productControler.novoProduto.PId}"/>
                 <h:outputLabel value="Quantidade: "/>
                 <h:inputText value="#{productControler.novoProduto.PStock}"/>
             </h:panelGrid>
-            <h:commandButton value="Save" action="#{productControler.editProduct()}"/>
+            <h:commandButton value="buy" action="#{productControler.buyProduct()}"/>
+            <h:commandButton value="cancel" action="index"/>
         </h:form>
-
-       <h:form style="border: 1px solid black">
-            <h2>Eliminar Produto</h2>
-            <h:panelGrid columns="2" >
-                <h:outputLabel value="Id do produto: "/>
-                <h:inputText value="#{productControler.novoProduto.PId}"/>
-            </h:panelGrid>
-            <h:commandButton value="Save" action="#{productControler.deleteProduct()}"/>
-        </h:form>
-        <h:commandButton value="cancel" action="index"/>
         
         <f:view>
+
+
             <h:form>
                 <h1><h:outputText value="Lista de Produtos"/></h1>
                 <h:dataTable value="#{productControler.productList}" var="item">
@@ -74,12 +48,6 @@
                             <h:outputText value="PPrecovenda"/>
                         </f:facet>
                         <h:outputText value="#{item.PPrecovenda}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="PPrecocompra"/>
-                        </f:facet>
-                        <h:outputText value="#{item.PPrecocompra}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
