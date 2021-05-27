@@ -8,7 +8,8 @@
     </h:head>
     <h:body>
         
-        <h:form>
+        <h:form style="border: 1px solid black">
+            <h2>Novo Produto</h2>
             <h:panelGrid columns="2" >
                 <h:outputLabel value="Nome do produto: "/>
                 <h:inputText value="#{productControler.novoProduto.PName}"/>
@@ -25,42 +26,25 @@
         </h:form>
         
         
-        
-        
-        <f:view>
-            <h:form style="border: 1px solid black">
-                <h2>Repôr Unidades</h2>
-                <br><label>Id do Produto</label>
-                    <input type="text" name="Id" value="" /></br>
-                <br><label>Nº Unidades</label>
-                    <input type="text" name="cnt" value="" /></br>
-            </h:form>
-        </f:view>
+        <h:form style="border: 1px solid black">
+            <h2>Repôr Produto</h2>
+            <h:panelGrid columns="2" >
+                <h:outputLabel value="Id do produto: "/>
+                <h:inputText value="#{productControler.novoProduto.PName}"/>
+                <h:outputLabel value="Quantidade: "/>
+                <h:inputText value="#{productControler.novoProduto.PStock}"/>
+            </h:panelGrid>
+            <h:commandButton value="Save" action="#{productControler.addNewProduct()}"/>
+        </h:form>
 
-        
-        <f:view>
-            <h:form style="border: 1px solid black">
-                <h2>Novo Produto</h2>
-                <br><label>Nome do Produto</label>
-                    <input type="text" name="name" value="" /></br>
-                <br><label>Categoria</label>
-                    <input type="text" name="cat" value="" /></br>
-                <br><label>Nº Unidades</label>
-                    <input type="text" name="cnt" value="" /></br>
-                <br><label>Preço compra</label>
-                    <input type="text" name="precoCompra" value="" /></br>
-                <br><label>Preço Venda</label>
-                    <input type="text" name="precoVenda" value="" /></br>
-            </h:form>
-        </f:view>
-        
-        <f:view>
-            <h:form style="border: 1px solid black">
-                <h2>Remover Unidades</h2>
-                <br><label>Id do Produto</label>
-                    <input type="text" name="Id" value="" /></br>
-            </h:form>
-        </f:view>
+       <h:form style="border: 1px solid black">
+            <h2>Eliminar Produto</h2>
+            <h:panelGrid columns="2" >
+                <h:outputLabel value="Id do produto: "/>
+                <h:inputText value="#{productControler.novoProduto.PId}"/>
+            </h:panelGrid>
+            <h:commandButton value="Save" action="#{productControler.deleteProduct()}"/>
+        </h:form>
         
         
         <f:view>

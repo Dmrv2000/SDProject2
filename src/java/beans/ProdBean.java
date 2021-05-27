@@ -34,6 +34,18 @@ public class ProdBean {
         return prd;
     }
     
+    public Produtos UpdateProduct(Produtos prd) {
+        em.persist(prd);
+        return prd;
+    }
+    
+    public void removerProduto(int id){
+        Produtos p = em.find(Produtos.class, id);
+        if (p != null){
+            em.remove(p);
+        }
+    }
+    
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 }

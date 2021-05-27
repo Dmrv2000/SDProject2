@@ -47,4 +47,11 @@ public class ProductControler {
         productList = prodBean.getProducts();
         return "admin.xhtml";
     }
+    
+    public String deleteProduct(){
+        
+        prodBean.removerProduto(novoProduto.getPId());
+        productList = prodBean.getProducts();
+        return "admin.xhtml";
+    }
 }
