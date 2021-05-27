@@ -5,15 +5,12 @@
  */
 package beans;
 
-import javax.ejb.Stateless;
 
 /**
  *
  * @author Dmrv2
  */
-import app.Produtos;
 import app.Utilizadores;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -26,11 +23,7 @@ public class LoginBean {
     
     public boolean login(Utilizadores u){
         Utilizadores o = em.find(Utilizadores.class, u.getUName());
-        if(o != null && (u.getUPwd() == o.getUPwd())){
-            return true;
-        }
-            
-        return false;
+        return (o != null && (u.getUPwd() == o.getUPwd()));
     }
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")

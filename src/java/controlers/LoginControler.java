@@ -36,7 +36,7 @@ public class LoginControler {
         
         boolean b = loginBean.login(u);
         if(b)
-            return "admin.xhtml";
+            return "admin";
         else
             return "/";
     }
