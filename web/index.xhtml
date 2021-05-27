@@ -7,13 +7,17 @@
         <title>Login</title>
     </h:head>
     <h:body style="text-align: center">
-        <form method="POST">
-            <br><label>Username</label>
-            <input type="text" name="username" value="" /></br>
-            <br><label>Password</label>
-            <input type="password" name="password" value="" /></br>
-            <input type="submit" value="Login"/>
-        </form>
+        
+        <h:form style="border: 1px solid black; margin: auto">
+            <h2>Login</h2>
+            <h:panelGrid columns="2" >
+                <h:outputLabel value="Nome de utilizador: "/>
+                <h:inputText value="#{loginControler.u.UName}"/>
+                <h:outputLabel value="Password: "/>
+                <h:inputText value="#{loginControler.u.UPwd}"/>
+            </h:panelGrid>
+            <h:commandButton value="Submit" action="#{loginControler.login()}"/>
+        </h:form>
         
         <h:form>
             <h:commandButton value="List" action="admin"/> 
