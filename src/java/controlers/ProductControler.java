@@ -54,4 +54,12 @@ public class ProductControler {
         productList = prodBean.getProducts();
         return "admin.xhtml";
     }
+    
+    public String editProduct(){
+        
+        prodBean.editProduct(novoProduto);
+        productList = prodBean.getProducts();
+        
+        return "admin.xhtml";
+    }
 }

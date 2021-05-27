@@ -34,9 +34,12 @@ public class ProdBean {
         return prd;
     }
     
-    public Produtos UpdateProduct(Produtos prd) {
-        em.persist(prd);
-        return prd;
+    public Produtos editProduct(Produtos p){
+        Produtos b = em.find(Produtos.class, p.getPId());
+        if (b != null){
+            b.setPStock(b.getPStock() + p.getPStock());
+        }
+        return b;
     }
     
     public void removerProduto(int id){

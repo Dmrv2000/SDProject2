@@ -30,11 +30,11 @@
             <h2>Repôr Produto</h2>
             <h:panelGrid columns="2" >
                 <h:outputLabel value="Id do produto: "/>
-                <h:inputText value="#{productControler.novoProduto.PName}"/>
+                <h:inputText value="#{productControler.novoProduto.PId}"/>
                 <h:outputLabel value="Quantidade: "/>
                 <h:inputText value="#{productControler.novoProduto.PStock}"/>
             </h:panelGrid>
-            <h:commandButton value="Save" action="#{productControler.addNewProduct()}"/>
+            <h:commandButton value="Save" action="#{productControler.editProduct()}"/>
         </h:form>
 
        <h:form style="border: 1px solid black">
