@@ -11,6 +11,7 @@ package beans;
  * @author Dmrv2
  */
 import app.Utilizadores;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -22,8 +23,11 @@ public class LoginBean {
     private EntityManager em;
     
     public boolean login(Utilizadores u){
-        Utilizadores o = em.find(Utilizadores.class, u.getUName());
-        return (o != null && (u.getUPwd() == o.getUPwd()));
+        List <Utilizadores> o = (List<Utilizadores>) em.createNamedQuery("Utilizadores.findByUName").setParameter("uName", u.getUName()).getResultList();
+        if (o.isEmpty() || o == null){
+            return false;
+        }
+        return ((u.getUPwd() == o.get(0).getUPwd()));
     }
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")

@@ -33,12 +33,12 @@ public class LoginControler {
     }
     
     public String login(){
-        
+        System.out.println("Entered Username is= " + u.getUName() + ", password is= " + u.getUPwd());
         boolean b = loginBean.login(u);
         if(b)
-            return "admin";
+            return "success";
         else
-            return "/";
+            return "failure";
     }
     
 }

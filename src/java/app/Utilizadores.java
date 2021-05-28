@@ -35,6 +35,12 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Utilizadores.findByUPwd", query = "SELECT u FROM Utilizadores u WHERE u.uPwd = :uPwd")})
 public class Utilizadores implements Serializable {
 
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "U_PWD")
+    private String uPwd;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,10 +52,6 @@ public class Utilizadores implements Serializable {
     @Size(min = 1, max = 100)
     @Column(name = "U_NAME")
     private String uName;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "U_PWD")
-    private int uPwd;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "utilizadores")
     private Administradores administradores;
 
@@ -60,7 +62,7 @@ public class Utilizadores implements Serializable {
         this.uId = uId;
     }
 
-    public Utilizadores(Integer uId, String uName, int uPwd) {
+    public Utilizadores(Integer uId, String uName, String uPwd) {
         this.uId = uId;
         this.uName = uName;
         this.uPwd = uPwd;
@@ -82,11 +84,11 @@ public class Utilizadores implements Serializable {
         this.uName = uName;
     }
 
-    public int getUPwd() {
+    public String getUPwd() {
         return uPwd;
     }
 
-    public void setUPwd(int uPwd) {
+    public void setUPwd(String uPwd) {
         this.uPwd = uPwd;
     }
 

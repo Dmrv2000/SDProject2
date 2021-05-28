@@ -4,57 +4,58 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"/>
         <title>Admin</title>
     </h:head>
-    <h:body>
-        
-        <h:form style="border: 1px solid black">
+    <h:body class="row p-4" style="font-family: sans-serif;">
+        <h:form>
+            <h:commandButton value="" class="btn btn-close"  action="index"/>
+        </h:form>
+        <h:form class="col-sm-4 text-center">
             <h2>Novo Produto</h2>
-            <h:panelGrid columns="2" >
+            <h:panelGrid columns="2" class="m-auto">
                 <h:outputLabel value="Nome do produto: "/>
-                <h:inputText value="#{productControler.novoProduto.PName}"/>
+                <h:inputText class="form-control m-1" value="#{productControler.novoProduto.PName}"/>
                 <h:outputLabel value="Categoria: "/>
-                <h:inputText value="#{productControler.novoProduto.PCategoria}"/>
+                <h:inputText class="form-control m-1" value="#{productControler.novoProduto.PCategoria}"/>
                 <h:outputLabel value="Quantidade: "/>
-                <h:inputText value="#{productControler.novoProduto.PStock}"/>
+                <h:inputText class="form-control m-1" value="#{productControler.novoProduto.PStock}"/>
                 <h:outputLabel value="Preço de Compra: "/>
-                <h:inputText value="#{productControler.novoProduto.PPrecocompra}"/>
+                <h:inputText class="form-control m-1" value="#{productControler.novoProduto.PPrecocompra}"/>
                 <h:outputLabel value="Preço de Venda: "/>
-                <h:inputText value="#{productControler.novoProduto.PPrecovenda}"/>
+                <h:inputText class="form-control m-1" value="#{productControler.novoProduto.PPrecovenda}"/>
             </h:panelGrid>
-            <h:commandButton value="Save" action="#{productControler.addNewProduct()}"/>
+            <h:commandButton value="Adicionar" class="btn btn-primary m-3" action="#{productControler.addNewProduct()}"/>
         </h:form>
         
         
-        <h:form style="border: 1px solid black">
+        <h:form class="col-sm-4 text-center">
             <h2>Repôr Produto</h2>
-            <h:panelGrid columns="2" >
+            <h:panelGrid columns="2" class="m-auto">
                 <h:outputLabel value="Id do produto: "/>
-                <h:inputText value="#{productControler.novoProduto.PId}"/>
+                <h:inputText class="form-control m-1" value="#{productControler.novoProduto.PId}"/>
                 <h:outputLabel value="Quantidade: "/>
-                <h:inputText value="#{productControler.novoProduto.PStock}"/>
+                <h:inputText class="form-control m-1" value="#{productControler.novoProduto.PStock}"/>
             </h:panelGrid>
-            <h:commandButton value="Save" action="#{productControler.editProduct()}"/>
+            <h:commandButton value="Repôr" class="btn btn-primary m-3" action="#{productControler.editProduct()}"/>
         </h:form>
 
-       <h:form style="border: 1px solid black">
+       <h:form class="col-sm-4 text-center">
             <h2>Eliminar Produto</h2>
-            <h:panelGrid columns="2" >
+            <h:panelGrid  columns="2" class="m-auto">
                 <h:outputLabel value="Id do produto: "/>
-                <h:inputText value="#{productControler.novoProduto.PId}"/>
+                <h:inputText class="form-control m-1" value="#{productControler.novoProduto.PId}"/>
             </h:panelGrid>
-            <h:commandButton value="Save" action="#{productControler.deleteProduct()}"/>
+            <h:commandButton value="Eliminar" class="btn btn-danger m-3" action="#{productControler.deleteProduct()}"/>
         </h:form>
         
-        <h:form>
-            <h:commandButton value="cancel" action="index"/>
-        </h:form>
+        
         
         
         <f:view>
-            <h:form>
-                <h1><h:outputText value="Lista de Produtos"/></h1>
-                <h:dataTable value="#{productControler.productList}" var="item">
+            <h:form class="mt-3">
+                <h1 class="text-center"><h:outputText value="Lista de Produtos"/></h1>
+                <h:dataTable class="table" value="#{productControler.productList}" var="item">
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="PId"/>
