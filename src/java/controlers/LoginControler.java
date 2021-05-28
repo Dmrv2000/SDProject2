@@ -34,7 +34,22 @@ public class LoginControler {
     
     public String login(){
         System.out.println("Entered Username is= " + u.getUName() + ", password is= " + u.getUPwd());
-        boolean b = loginBean.login(u);
+        int b = loginBean.login(u);
+        switch (b){
+            case 0:
+                return "failure";
+            case 1:
+                return "success";
+            case 2:
+                return "admin";
+            default:
+                return "failure";
+        }
+       
+    }
+    
+    public String logout(){
+        boolean b = loginBean.logout();
         if(b)
             return "success";
         else

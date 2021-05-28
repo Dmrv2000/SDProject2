@@ -8,6 +8,11 @@
         <navigation-case>
             <from-action>#{loginControler.login()}</from-action>
             <from-outcome>success</from-outcome>
+            <to-view-id>/users.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{loginControler.login()}</from-action>
+            <from-outcome>admin</from-outcome>
             <to-view-id>/admin.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
@@ -16,4 +21,40 @@
             <to-view-id>/response.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/users.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>return-index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{loginControler.logout()}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{loginControler.logout()}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/users.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/admin.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>return-index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{loginControler.logout()}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{loginControler.logout()}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/admin.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
 </faces-config>
