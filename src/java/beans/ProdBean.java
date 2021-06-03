@@ -42,6 +42,10 @@ public class ProdBean {
         return b;
     }
     
+   public List<app.Produtos> getPorId(int id) {
+        return (List<app.Produtos>) em.createNamedQuery("Produtos.findByPId").setParameter("pId", id).getResultList();
+    }
+    
     public void removerProduto(int id){
         Produtos p = em.find(Produtos.class, id);
         if (p != null){
