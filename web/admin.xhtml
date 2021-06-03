@@ -93,6 +93,57 @@
                         <h:outputText value="#{item.PCategoria}"/>
                     </h:column>
                 </h:dataTable>
+            </h:form>        </f:view>
+                    <f:view>
+            
+                
+                
+
+
+                <h:form>
+                    <h1><h:outputText value="List"/></h1>
+                    <h:dataTable class="table" value="#{VendaControler.vendaList}" var="item">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="VId"/>
+                            </f:facet>
+                            <h:outputText value="#{item.VId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="VQuant"/>
+                            </f:facet>
+                            <h:outputText value="#{item.VQuant}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="VData"/>
+                            </f:facet>
+                            <h:outputText value="#{item.VData}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="VPrecototal"/>
+                            </f:facet>
+                            <h:outputText value="#{item.VPrecototal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="PId"/>
+                            </f:facet>
+                            <h:outputText value="#{item.PId.PId}"/>
+                        </h:column>
+                          <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="PName"/>
+                            </f:facet>
+                            <h:outputText value="#{item.PId.PName}"/>
+                        </h:column>
+                    </h:dataTable>
+             
+
             </h:form>
         </f:view>
 
