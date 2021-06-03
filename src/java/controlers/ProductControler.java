@@ -10,9 +10,13 @@ import app.Vendas;
 
 import beans.ProdBean;
 import beans.VendasBean;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
@@ -70,20 +74,29 @@ Vendas nv = new Vendas();
         return "admin.xhtml";
     }
     
-    public String buyProduct(){
+    public String buyProduct() throws ClassNotFoundException, SQLException{
         prodBean.comprarProduto(novoProduto);
         productList = prodBean.getProducts();
-        
-        
-       
-        
+        List<Produtos> c = prodBean.getPorId(novoProduto.getPId());
+        Class.forName("org.apache.derby.jdbc.ClientDriver");
+        Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/DBProject2");
+        PreparedStatement s = con.prepareStatement("insert into vendas(p_id,v_quant,v_data,v_precototal) values (?,?,?,?) ");
+       s.setInt(1,novoProduto.getPId());
+       s.setInt(2,novoProduto.getPStock());
+       Date sqlDate = new Date(System.currentTimeMillis());
+       s.setDate(3, sqlDate);
+       Double x = Double.valueOf(novoProduto.getPStock());
+       Double total = c.get(0).getPPrecovenda() * x;
+       s.setDouble(4, total);
+        boolean result = s.execute();
+        /*
         nv.setPId(novoProduto);
         nv.setVQuant(novoProduto.getPStock()); 
         nv.setVPrecototal(novoProduto.getPStock() * novoProduto.getPPrecovenda());
-        Date date = new Date(); 
+        
         nv.setVData(date);
         
-        VBean.addVendas(nv);
+        VBean.addVendas(nv);*/
         return "users.xhtml";
         
         
