@@ -6,8 +6,13 @@
 package controlers;
 
 import app.Produtos;
+import app.Vendas;
+
 import beans.ProdBean;
+import beans.VendasBean;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
@@ -25,9 +30,11 @@ public class ProductControler {
 
     @EJB
     private ProdBean prodBean;
+    private VendasBean VBean;
+     
     
     Produtos novoProduto = new Produtos(); 
-
+Vendas nv = new Vendas();
     public Produtos getNovoProduto() {
         return novoProduto;
     }
@@ -67,6 +74,20 @@ public class ProductControler {
         prodBean.comprarProduto(novoProduto);
         productList = prodBean.getProducts();
         
+        
+       
+        
+        nv.setPId(novoProduto);
+        nv.setVQuant(novoProduto.getPStock()); 
+        nv.setVPrecototal(novoProduto.getPStock() * novoProduto.getPPrecovenda());
+        Date date = new Date(); 
+        nv.setVData(date);
+        
+        VBean.addVendas(nv);
         return "users.xhtml";
+        
+        
+        
+        
     }
 }
